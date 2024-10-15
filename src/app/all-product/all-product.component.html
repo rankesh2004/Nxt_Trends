@@ -1,0 +1,56 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "true"><p class="loader"></p></ngx-spinner>
+<div *ngIf="isFetch" class="all-products-section">
+  <div class="filters-group-container">
+    <div class="search-input-container">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input
+        value={searchInput}
+        type="search"
+        class="search-input"
+        placeholder="Search"
+        [(ngModel)]="searchInput"
+        (ngModelChange)="fetchProductData()"
+      />
+    </div>
+    <div>
+      <select class="sort-by-select" [(ngModel)]="activeCategoryId" (ngModelChange)="fetchProductData()">
+        <option value="" disabled [selected]="!activeCategoryId">Category</option>
+        <option *ngFor="let category of categoryOptions" [value]="category.categoryId" class="select-option">
+          {{category.name}}
+        </option>
+      </select>
+    </div>
+    <div>
+      <select class="sort-by-select" [(ngModel)]="activeRatingId" (ngModelChange)="fetchProductData()">
+        <option value="" disabled [selected]="!activeRatingId">Rating</option>
+        <option *ngFor="let rating of ratingsList" [value]="rating.ratingId" class="select-option">
+           {{rating.ratingId}} & above
+        </option>
+      </select>
+    </div>
+    <button
+      type="button"
+      class="clear-filters-btn"
+      (click)="clearFilters()"
+    >
+      Clear Filters
+    </button>
+  </div>
+  <div class="all-products-container">
+      <div class="products-header">
+          <h1 class="products-list-heading">All Products</h1>
+          <div class="sort-by-container">
+            <i class="fa-solid fa-arrow-down-wide-short sort-by-icon"></i>
+            <p class="sort-by">Sort by</p>
+            <select class="sort-by-select" [(ngModel)]="activeOptionId" (ngModelChange)="fetchProductData()">
+              <option *ngFor="let eachOption of sortbyOptions" [value]="eachOption.optionId" class="select-option">
+                  {{eachOption.displayText}}
+              </option>
+            </select>
+          </div>
+      </div>
+      <ul class="products-list">
+          <app-product-card *ngFor="let product of productsList" [product]="product"></app-product-card>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<nav class="nav-header">
+    <div class="nav-content">
+      <div class="nav-bar-mobile-logo-container">
+        <a class="link" routerLink="/" routerLinkActive="Active">
+          <img
+            class="website-logo"
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+            alt="website logo"
+          />
+        </a>
+        <button type="button" class="nav-mobile-btn" (click)="onLogout()">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
+            alt="nav logout"
+            class="nav-bar-img"
+          />
+        </button>
+      </div>
+
+      <div class="nav-content nav-bar-large-container">
+        <img
+          class="website-logo"
+          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+          alt="website logo"
+        />
+        <ul class="nav-menu">
+            <a class="link" routerLink="/" routerLinkActive="Active"><li class="nav-menu-item"><i class="fa-solid fa-house"></i> Home</li></a>
+            <a class="link" routerLink="/products" routerLinkActive="Active"><li class="nav-menu-item"><i class="fa-solid fa-bag-shopping"></i> Products</li></a>
+            <a class="link" routerLink="/cart" routerLinkActive="Active"><li class="nav-menu-item"><i class="fa-solid fa-cart-shopping"></i> Cart</li></a>
+        </ul>
+        <button
+          type="button"
+          class="logout-desktop-btn"
+          (click)="onLogout()"
+        >
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </div>
+    <div class="nav-menu-mobile">
+      <ul class="nav-menu-list-mobile">
+        <li class="nav-menu-item-mobile">
+          <a class="link" routerLink="/" routerLinkActive="Active">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
+              alt="nav home"
+              class="nav-bar-img"
+            />
+          </a>
+        </li>
+
+        <li class="nav-menu-item-mobile">
+          <a class="link" routerLink="/products" routerLinkActive="Active">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-products-icon.png"
+              alt="nav products"
+              class="nav-bar-img"
+            />
+          </a>
+        </li>
+
+        <li class="nav-menu-item-mobile">
+          <a class="link" routerLink="/cart" routerLinkActive="Active">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png"
+              alt="nav cart"
+              class="nav-bar-img"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,52 @@
+.payment-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pay-success-img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .pay-success-text {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #1e293b;
+    margin-top: 10px;
+  }
+  
+  .thanks-text {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #64748b;
+    margin-top: 10px;
+  }
+  
+  .go-to-home-btn {
+    width: 130px;
+    height: 38px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ffffff;
+    background-color: #157cf1;
+    margin-top: 15px;
+  }
+  

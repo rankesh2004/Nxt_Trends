@@ -1,0 +1,31 @@
+<div *ngIf="!isFail" class="prime-deal-container">
+    <h1 class="primedeals-list-heading">Exclusive Prime Deals</h1>
+    <ul class="products-list">
+      <li class="product-item" *ngFor="let product of productsList">
+        <a [routerLink]="['/products',product.id]" class="link" routerLinkActive="Active">
+        <img [src]="product?.image_url" [alt]="product?.title" class="thumbnail" />
+        <h1 class="title">{{product?.title}}</h1>
+        <p class="brand">by {{product?.brand}}</p>
+        <div class="product-details">
+            <p class="price">Rs {{product?.price}}/-</p>
+            <div class="rating-container">
+              <p class="rating">{{product?.rating}}</p>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/star-img.png"
+                alt="star"
+                class="star"
+              />
+            </div>
+        </div>
+      </a>
+      </li>
+    </ul>
+</div>
+<div *ngIf="isFail" class="prime-deal-container">
+  <img
+      src="https://assets.ccbp.in/frontend/react-js/exclusive-deals-banner-img.png"
+      alt="register prime"
+      class="register-prime-img"
+    />
+</div>
+    

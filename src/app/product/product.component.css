@@ -1,0 +1,9 @@
+.container{
+  position: relative;
+}
+.product-sections {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+}

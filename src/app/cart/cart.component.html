@@ -1,0 +1,71 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "true"><p class="loader"></p></ngx-spinner>
+<app-header></app-header>
+<app-empty-cart-view *ngIf="cartItemsList.length<=0 && isGet"></app-empty-cart-view>
+<div class="cart-container" *ngIf="cartItemsList.length>0 && isGet">
+    <div class="cart-content-container">
+        <h1 class="cart-heading">My Cart</h1>
+        <button
+        type="button"
+        class="remove-all-btn"
+        (click)="onClickRemoveAllBtn()"
+        >
+        Remove All
+        </button>
+        <ul class="cart-list">
+            <li class="cart-item" *ngFor="let cartItem of cartItemsList">
+                <div class="cart-img-details">
+                    <img class="cart-product-image" [src]="cartItem.image_url" [alt]="cartItem.title" />
+                    <div class="cart-product-title-brand-container">
+                        <p class="cart-product-title">{{cartItem.title}}</p>
+                        <p class="cart-product-brand">by {{cartItem.brand}}</p>
+                    </div>
+                </div>
+                <div class="cart-item-details-container">
+                    <div class="cart-quantity-container">
+                        <button
+                        type="button"
+                        class="quantity-controller-button"
+                        (click)="onClickDecrement(cartItem.id)"
+                        >
+                        <i class="fa-solid fa-minus quantity-controller-icon"></i>
+                        </button>
+                        <p class="quantity">{{cartItem.quantity}}</p>
+                        <button
+                        type="button"
+                        class="quantity-controller-button"
+                        (click)="onClickIncrement(cartItem.id)"
+                        >
+                        <i class="fa-solid fa-plus quantity-controller-icon"></i>
+                        </button>
+                    </div>
+                    <div class="total-price-remove-container">
+                        <p class="cart-total-price">Rs {{cartItem.quantity*cartItem.price}}/-</p>
+                    </div>
+                </div>
+                <button
+                class="delete-button"
+                type="button"
+                (click)="onRemoveCartItem(cartItem.id)"
+            >
+            <i class="fa-solid fa-trash cart-trash-icon"></i>
+            </button>
+            </li>
+        </ul>
+        <div class="cart-summary-container">
+            <h1 class="order-total-value">
+              <span class="order-total-label">Order Total:</span> Rs {{totalPrice}}/-
+            </h1>
+            <p class="total-items">{{cartItemsList.length}} Items in cart</p>
+            <button type="button" class="checkout-button  d-sm-none">
+                <a routerLink="/payment-successfull" routerLinkActive="Active">
+                  <p>Place Order</p>
+                </a>
+            </button>
+        </div>
+        <button type="button" class="checkout-button d-lg-none">
+              <a routerLink="/payment-successfull" routerLinkActive="Active">
+                <p>Place Order</p>
+              </a>
+        </button>
+    </div>
+</div>

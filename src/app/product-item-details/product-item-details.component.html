@@ -1,0 +1,83 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "true"><p class="loader"></p></ngx-spinner>
+<div class="container">
+  <app-header></app-header>
+<div *ngIf="isFetch" class="product-item-details-container">
+    <div class="product-details-success-view">
+        <div class="product-details-container">
+          <img [src]="product?.image_url" alt="product" class="product-image" />
+          <div class="product">
+            <h1 class="product-name">{{product.title}}</h1>
+            <p class="price-details">Rs {{product.price}}/-</p>
+            <div class="rating-and-reviews-count">
+              <div class="rating-container">
+                <p class="rating">{{product.rating}}</p>
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/star-img.png"
+                  alt="star"
+                  class="star"
+                />
+              </div>
+              <p class="reviews-count">{{product.total_reviews}}<span class="review"> Reviews</span></p>
+            </div>
+            <p class="product-description">{{product.description}}</p>
+            <div class="label-value-container">
+              <p class="label">Available:</p>
+              <p class="value">{{product.availability}}</p>
+            </div>
+            <div class="label-value-container">
+              <p class="label">Brand:</p>
+              <p class="value">{{product.brand}}</p>
+            </div>
+            <hr class="horizontal-line" />
+            <div class="quantity-container">
+              <button 
+              type="button"
+              class="quantity-controller-button"
+              (click)="onDcreamentQuantity()"
+              >
+                <i class="fa-solid fa-minus quantity-controller-icon"></i>
+              </button>
+              <p class="quantity">{{quantity}}</p>
+              <button
+              type="button"
+              class="quantity-controller-button"
+              (click)="onIncreamentQuantity()"
+              >
+                <i class="fa-solid fa-plus quantity-controller-icon"></i>
+              </button>
+            </div>
+            <button
+              type="button"
+              class="button add-to-cart-btn"
+              (click)="onClickAddToCart()"
+            >
+              <i class="fa-solid fa-cart-plus add-cart"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <h1 class="similar-products-heading">Similar Products</h1>
+        <ul class="similar-products-list">
+          <li class="similar-item" *ngFor="let product of similarProducts">
+            <img
+              [src]="product.image_url"
+              [alt]="product.title"
+              class="similar-image"
+            />
+            <h1 class="title-similar">{{product.title}}</h1>
+            <p class="brand-name">{{product.brand}}</p>
+            <div class="bottom-div">
+              <p class="price-bottom">{{product.price}}/-</p>
+              <p class="rating-bottom">
+                <span>{{product.rating}}</span>
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/star-img.png"
+                  class="star"
+                  alt="star"
+                />
+              </p>
+            </div>
+        </li>
+        </ul>
+      </div>
+</div>
+</div>

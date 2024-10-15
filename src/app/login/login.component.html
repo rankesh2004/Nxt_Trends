@@ -1,0 +1,51 @@
+<div class="login-form-container">
+    <form class="form-container" (submit)="submitForm()">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+        class="login-website-logo-desktop-img"
+        alt="website logo"
+      />
+      <div class="input-container">
+        <label class="input-label" htmlFor="username">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            class="input-field"
+            [value]="username"
+            [(ngModel)]="username"
+            placeholder="Username"
+            [ngModelOptions]="{standalone: true}"
+          />
+      </div>
+      <div class="input-container">
+        <label class="input-label" htmlFor="password">
+          Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          class="input-field"
+          [value]="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          [ngModelOptions]="{standalone: true}"
+        />
+      </div>
+      <button type="submit" class="login-button">
+        Login
+      </button>
+      <p *ngIf="isError" class="error-message">*{{errorMsg}}</p>
+    </form>
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png"
+      class="login-img"
+      alt="website login"
+    />
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+      class="login-website-logo-mobile-img"
+      alt="website logo"
+    />
+  </div>
